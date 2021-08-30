@@ -1,15 +1,12 @@
 # https://projecteuler.net/problem=3
 
 N = 600851475143
-res = None
-prime = dict()
+res = 2
 
-for i in range(2, N):
-    if i not in prime:
-        prime[i] = True
-        if res is None or res < i:
-            res = i
-        for j in range(2*i, N+1, i):
-            prime[j] = False
+while N > 1:
+    if N % res == 0:
+        N //= res
+    else:
+        res += 1
 
 print(res)
